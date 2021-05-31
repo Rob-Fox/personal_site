@@ -72,14 +72,14 @@
         <div class='row'>
             <div class='col order-2' id='sticky-sidebar' style='border-left: 1px solid rgb(0, 0, 0);'>
                 <div class='sticky-top' id='sidebar' style='min-width: 75px; top: 65px;'>
-                    <ul>
+                    <ul id='ul'>
                         {% for stock in stocks %}
                         <li style='list-style-type: none; text-align: left;'>
                             {% for item in stock %}
-                            <div id={{item.0}}>
-                                <h6 style='text-align: left;'>{{ item.0 }}</h6>
-                                <p style='text-align: center;'>{{ item.1 }}{% if item.2 == 1 %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/up.png" %}'>{% elif item.2 == 0 %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/neutral.png" %}'>{% else %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/down.png" %}'>{% endif %}</p>
-                            </div>
+                                <div id='{{item.0}}'>
+                                    <h6 style='text-align: left;'>{{ item.0 }}</h6>
+                                    <p style='text-align: center;'>{{ item.1 }}{% if item.2 == 1 %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/up.png" %}'>{% elif item.2 == 0 %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/neutral.png" %}'>{% else %}<img style='height: 1em;margin-top:-3%;' src='{% static "main_page/down.png" %}'>{% endif %}</p>
+                                </div>
                             {% endfor %}
                         </li>
                         {% endfor %}
@@ -89,7 +89,7 @@
             <div class='container-fluid col row'>
                 <div>
                     <h4>About this site:</h4>
-                    <p>This site was made using Python with the Django framework. It uses the yahoo finance api to get updated stock data when the page is loaded and updates every 5 minutes by using websockets to request new data from the server.</p>
+                    <p>This site was made using Python with the Django framework. It uses the yahoo finance api to get updated stock data when the page is loaded and updates asynchronously every 5 minutes by using websockets to request new data from the server. Below is a viewport which renders an animated dodecahedron using p5js and images of photos I have taken are set as the texture of the polyhedra and displayed on its faces.</p>
                 </div>
                 <hr style='width: 90%;margin-left: auto; margin-right: auto;'>
                 <main class='col' style='top: 65px;'>

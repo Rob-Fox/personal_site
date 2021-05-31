@@ -4,6 +4,9 @@ from yahoo_fin import stock_info as si
 
 stock_array = ['KRFG', 'AMD', 'AMC', 'MVIS', 'NFLX', 'NVDA', 'DODFX', 'FXAIX', 'VSGAX']
 
+def get_val(e):
+    return e[3]
+
 class Consumer(WebsocketConsumer):
     def connect(self):
         self.accept()
@@ -26,8 +29,10 @@ class Consumer(WebsocketConsumer):
                     flag = 0
                 else:
                     flag = -1
-                arr.append([item, data[item]['regularMarketPrice'], flag])
+                arr.append([item, data[item]['regularMarketPrice'], flag, data[item]['regularMarketChangePercent']])
                 data = {}
+            arr.sort(key=get_val, reverse=True)
+            print(arr)
             self.send(text_data=json.dumps({
                 'message': arr,
             }))
