@@ -1,18 +1,25 @@
 
 var verts = [];
-var rotation = 0.01;
+var rotation_factor = 0.004;
+var rotation = 0.001;
+var widthF = .7;
+var heightF = .9;
+var dispF = .00015;
 function addPermutations(x,y,z){
   addVerts(x,y,z);
   addVerts(z,x,y);
   addVerts(y,z,x);
 }
 function setup() {
-  createCanvas(700, 450, WEBGL);
+  var canvas = createCanvas(700, 450, WEBGL);
+  resizeCanvas(windowWidth*widthF, windowHeight*heightF);
+  // canvas.class('d-flex flex-column flex-shrink-0 p-3 bg-light');
   var PHI = (1+sqrt(5))/2;
   addVerts(1,1,1);
   addPermutations(0,1/PHI,PHI);
   edgeLength = 2/PHI;
-  dispSz = 130;
+  dispSz = 90;
+  dispSz = ((windowWidth*widthF)*windowHeight*heightF)*dispF
 }
 class vert{
   constructor(x,y,z){
@@ -61,7 +68,7 @@ function draw() {
   rotateX(rotation);
   rotateY(rotation);
   rotateZ(rotation);
-  rotation += 0.01;
+  rotation += rotation_factor;
   
   for(var i = 0; i < verts.length; i++){
     for(var j = i+1; j < verts.length; j++){
@@ -70,4 +77,14 @@ function draw() {
       }
     }
   }
+}
+
+function windowResized(){
+  resizeCanvas((windowWidth*widthF), (windowHeight*heightF));
+  // canvas.width = windowWidth*widthF;
+  // canvas.height = windowHeight.heightF;
+  dispSz = ((windowWidth*widthF)*(windowHeight*heightF))*dispF
+  console.log('window width: '+ windowWidth + ', widthFactor: ' + widthF + ', combined: '+ (windowWidth*widthF));
+  console.log('canvas width: ' + canvas.width);
+
 }
