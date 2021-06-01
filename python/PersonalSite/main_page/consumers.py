@@ -32,7 +32,6 @@ class Consumer(WebsocketConsumer):
                 arr.append([item, data[item]['regularMarketPrice'], flag, data[item]['regularMarketChangePercent']])
                 data = {}
             arr.sort(key=get_val, reverse=True)
-            print(arr)
             self.send(text_data=json.dumps({
                 'message': arr,
             }))

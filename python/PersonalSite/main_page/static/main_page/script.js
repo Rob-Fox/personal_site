@@ -38,12 +38,13 @@ socket.onmessage = function(e){
     ul.innerHTML = null;
     ul.appendChild(elements);
 }
-
+let inte;
 socket.onclose = function(e){
     console.error('Socket closed unexpectedly.');
     console.error(e);
+    clearInterval(inte);
 }
 
 window.onload = function(){
-    setInterval(update_stocks, 1000*60*5);
+    inte = setInterval(update_stocks, 1000*60*5);
 }
