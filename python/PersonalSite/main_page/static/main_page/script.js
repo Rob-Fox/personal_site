@@ -47,4 +47,36 @@ socket.onclose = function(e){
 
 window.onload = function(){
     inte = setInterval(update_stocks, 1000*60*5);
+    if(screen.width < 604){
+        var hide = document.getElementById('sticky-sidebar');
+        hide.style.display = 'none';
+        var show = document.getElementById('ticker');
+        show.style.display = 'block';
+        document.getElementById('main-wrapper').style.marginTop = '0px';
+        document.getElementById('marquee-hr').style.marginTop = '-5px';
+    }
+    else{
+        var hide = document.getElementById('ticker');
+        hide.style.display = 'none';
+        var show = document.getElementById('sticky-sidebar');
+        show.style.display = 'block';
+    }
 }
+function adjust_elements(){
+    if(screen.width < 604){
+        var hide = document.getElementById('sticky-sidebar');
+        hide.style.display = 'none';
+        var show = document.getElementById('ticker');
+        show.style.display = 'block';
+        document.getElementById('main-wrapper').style.marginTop = '0px';
+        document.getElementById('marquee-hr').style.marginTop = '-5px';
+    }
+    else{
+        var hide = document.getElementById('ticker');
+        hide.style.display = 'none';
+        var show = document.getElementById('sticky-sidebar');
+        show.style.display = 'block';
+    }
+}
+
+window.onresize = adjust_elements;
