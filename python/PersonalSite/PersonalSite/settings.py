@@ -127,3 +127,13 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ASGI_APPLICATION = 'PersonalSite.asgi.application'
+
+# UPDATE THIS
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = ''
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_PORT = 1000
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'jobmail@robertfox.com'

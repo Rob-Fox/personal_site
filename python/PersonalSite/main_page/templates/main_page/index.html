@@ -45,15 +45,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Contact
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <button class="nav-link btn " type='button' data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Contact</button>
               </li>
             </ul>
             <form class="d-flex">
@@ -94,7 +86,20 @@
                 <main class='col' id='main' style='top: 65px;'>
                 </main>
                 <hr style='width: 90%;margin-left: auto; margin-right: auto; margin-top: 10px;'>
-                <div>
+                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style='height:35vh'>
+                    <div class='offcanvas-header'>
+                        <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                    </div>
+                    <div class='offcanvas-body' style="Display:flex; justify-content:center;">
+                        <form action='/contact' method='post' style='display:inline-block;' >
+                            {% csrf_token %}
+                            <p><input type='text' name='Name' placeholder="Name"></p>
+                            <p><input type='text' name='Company' placeholder="Company"></p>
+                            <p><input type='text' name='Email' placeholder="Email"></p>
+                            <p><textarea name='Message' placeholder="Message"></textarea></p>
+                            <p><input type='submit' value='contact'></p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

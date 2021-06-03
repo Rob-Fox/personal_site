@@ -1,16 +1,17 @@
-from django.shortcuts import render
-# from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from yahoo_fin import stock_info as si
+from .models import Contact as Contact
+from django.contrib import messages
 
 
 stock_array = ['KRFG', 'AMD', 'AMC', 'MVIS', 'NFLX', 'NVDA', 'DODFX', 'FXAIX', 'VSGAX']
-# Create your views here.
 def get_val(e):
     return e[1]
 
 def order(e):
     return e[1]
-
+# Create your views here.
 def index(req):
     content = {
         'stocks': [],
@@ -36,3 +37,25 @@ def index(req):
         content['stocks'].append((stock))
         stock = []
     return render(req, 'main_page/index.html', content)
+
+def form_view(req):
+    errors = Contact.objects.validator(req.POST)
+    if len(errors):
+        for tag,error in errors.items():
+            messages.error(req, error, extra_tags=tag)
+        return redirect('/')
+    else:
+        Name = req.POST['Name']
+        Company = req.POST['Company']
+        Email = req.POST['Email']
+        Subject = req.POST['Name']+'@'+req.POST['Company']
+        Message = req.POST['Message']
+        Sender = 'jobmail@robertfox.com'
+        Send_to = 'myemail' #UPDATE THIS
+
+        contact = Contact.objects.create(name=Name, email=Email, company=Company, message=Message)
+        contact.save()
+
+        success = send_mail(Subject, Message, Sender, [Send_to], fail_silently=False)
+        print(success)
+        return redirect('/')
