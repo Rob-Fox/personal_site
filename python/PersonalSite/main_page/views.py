@@ -56,6 +56,5 @@ def form_view(req):
         contact = Contact.objects.create(name=Name, email=Email, company=Company, message=Message)
         contact.save()
 
-        success = send_mail(Subject, Message, Sender, [Send_to], fail_silently=False)
-        print(success)
+        send_mail(Subject, Message, Sender, [Send_to], fail_silently=False)
         return redirect('/')

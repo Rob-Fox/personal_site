@@ -77,6 +77,6 @@ function adjust_elements(){
         var show = document.getElementById('sticky-sidebar');
         show.style.display = 'block';
     }
-}
 
+}
 window.onresize = adjust_elements;
