@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
   web:
@@ -10,10 +10,15 @@ services:
   web_migrate:
     extends:
       service: web
-    command: python manage.py migrate
+    command: python3 manage.py migrate
+  web_collectstatic:
+    extends:
+      service: web
+    command: python3 manage.py collectstatic
   web_run:
     extends:
       service: web
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python3 manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+      

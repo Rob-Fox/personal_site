@@ -12,12 +12,12 @@ function addPermutations(x,y,z){
 }
 let img1, img2, img3, img4, img5, img6, slider_x, slider_y, r_check;
 function preload(){
-  img1 = loadImage(static_url+'main_page/photos.png');
-  img2 = loadImage(static_url+'main_page/photos1.png');
-  img3 = loadImage(static_url+'main_page/photos2.png');
-  img4 = loadImage(static_url+'main_page/photos3.png');
-  img5 = loadImage(static_url+'main_page/photos4.png');
-  img6 = loadImage(static_url+'main_page/photos5.png');
+  img1 = loadImage(static_url+'main_page/photos.jpg');
+  img2 = loadImage(static_url+'main_page/photos1.jpg');
+  img3 = loadImage(static_url+'main_page/photos2.jpg');
+  img4 = loadImage(static_url+'main_page/photos3.jpg');
+  img5 = loadImage(static_url+'main_page/photos4.jpg');
+  img6 = loadImage(static_url+'main_page/photos5.jpg');
 }
 function setup() {
   clear();

@@ -1,7 +1,7 @@
 appdirs==1.4.4
 asgiref==3.3.4
 attrs==20.3.0
-autobahn==21.3.1
+autobahn
 Automat==20.2.0
 bcrypt==3.2.0
 beautifulsoup4==4.9.3
@@ -23,9 +23,9 @@ hyperlink==21.0.0
 idna==2.10
 incremental==21.3.0
 lxml==4.6.3
-numpy==1.20.3
+numpy
 p5==0.7.1
-pandas==1.2.4
+pandas
 parse==1.19.0
 Pillow==8.2.0
 pyasn1==0.4.8
