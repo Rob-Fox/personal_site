@@ -1,0 +1,19 @@
+<!-- <marquee id='ticker' class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" style='margin-top: 56px;;'>{% for stock in stocks %}<span class='{{stock.0.0}}' style='margin-right: 2em;'>{{ stock.0.0 }} {{ stock.0.1 }}</span>{% endfor %}</marquee><hr id='marquee-hr'> -->
+<div class='col order-2' id='sticky-sidebar' style='border-left: 1px solid rgb(0, 0, 0);'>
+    <div class='sticky-top' id='sidebar' style='min-width: 75px; top: 65px;'>
+        <ul id='ul'>
+            <!-- {% for stock in stocks %}
+            <li style='list-style-type: none; text-align: left;'>
+                {% for item in stock %}
+                    <div id='{{item.0}}'>
+                        <h2 style='text-align: left;display: inline-block;'>{{ item.0 }}</h2>
+                        <p style='text-align: center; font-size: 150%; display: inline-block;margin-left: 5vw;'>{{ item.1 }}{% if item.2 == 1 %}<img style='height: 1em;margin-top:-7%;' src='{% static "main_page/up.png" %}'>{% elif item.2 == 0 %}<img style='height: 1em;margin-top:-8%;' src='{% static "main_page/neutral.png" %}'>{% else %}<img style='height: 1em;margin-top:-2%;;' src='{% static "main_page/down.png" %}'>{% endif %}</p>
+                        
+                        <hr style='width: 90%;'>
+                    </div>
+                {% endfor %}
+            </li>
+            {% endfor %} -->
+        </ul>
+    </div>
+</div>
