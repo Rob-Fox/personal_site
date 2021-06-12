@@ -1,6 +1,62 @@
 <h1>Hello World</h1>
-<app-navbar></app-navbar>
-<app-contact-form></app-contact-form>
-<app-about-page></app-about-page>
-<app-image-display></app-image-display>
-<app-stock-ticker></app-stock-ticker>
+
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel='shortcut icon' type='image/x-icon' href='{% static "main_page/favicon.ico" %}'> -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' type='text/css' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
+    <script>
+        // var static_url = "{% get_static_prefix %}";
+        // var media_url = "{% get_media_prefix %}";
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js"></script>
+    <script src='{% static "main_page/bootstrap.bundle.min.js" %}'></script>
+    <!-- <script src='{% static "main_page/sketch.js" %}'></script> -->
+    <!-- <script src='{% static "main_page/script.js" %}'></script> -->
+    <!-- <script>
+        var d = document.createElement('div');
+        d.className = 'hidden no-d';
+        document.head.appendChild(d);
+        var loaded = window.getComputedStyle(d).display === 'none';
+        document.head.removeChild(d);
+
+        if(!loaded){
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href= '{% static "main_page/bootstrap.min.css" %}';
+            document.head.appendChild(link);
+        }
+    </script> -->
+    <title>Main Page</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <app-stock-ticker></app-stock-ticker>
+    <div class='container-fluid' id='main-wrapper' style='margin-top: 39px'>
+        <div class='row'>
+            <app-stock-ticker></app-stock-ticker>
+            <div class='container-fluid col row'>
+                <app-about-page></app-about-page>
+                <hr style='width: 90%;margin-left: auto; margin-right: auto;'>
+                <app-image-display></app-image-display>
+                <hr style='width: 90%;margin-left: auto; margin-right: auto; margin-top: 10px;'>
+                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" style='display: table;'>
+                    <div class='offcanvas-header'>
+                        <button type='button' class='btn-close text-reset' data-bs-dismiss='offcanvas' aria-label='Close'></button>
+                    </div>
+                    <div class='offcanvas-body row' style="Display:block; justify-content:center; text-align: center;">
+                        <app-contact-form></app-contact-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
