@@ -7,17 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel='shortcut icon' type='image/x-icon' href='{% static "main_page/favicon.ico" %}'> -->
+    <!-- <link rel='shortcut icon' type='image/x-icon' href="/assets/favicon.ico"> -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' type='text/css' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous'>
-    <script>
-        // var static_url = "{% get_static_prefix %}";
-        // var media_url = "{% get_media_prefix %}";
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js"></script>
-    <script src='{% static "main_page/bootstrap.bundle.min.js" %}'></script>
+    <script src="/assets/bootstrap.bundle.min.js"></script>
     <!-- <script src='{% static "main_page/sketch.js" %}'></script> -->
-    <!-- <script src='{% static "main_page/script.js" %}'></script> -->
-    <!-- <script>
+    <script src="/assets/script.js"></script>
+    <script>
         var d = document.createElement('div');
         d.className = 'hidden no-d';
         document.head.appendChild(d);
@@ -28,10 +24,10 @@
             var link = document.createElement('link');
             link.type = 'text/css';
             link.rel = 'stylesheet';
-            link.href= '{% static "main_page/bootstrap.min.css" %}';
+            link.href="/assets/bootstrap.min.css";
             document.head.appendChild(link);
         }
-    </script> -->
+    </script>
     <title>Main Page</title>
 </head>
 <body>
