@@ -1,67 +1,67 @@
 
-var verts = [];
-var rotation_factor = 0.004;
-var rotation = 0.001;
-var widthF = .7;
-var heightF = .9;
-var dispF = .00015;
-function addPermutations(x,y,z){
-  addVerts(x,y,z);
-  addVerts(z,x,y);
-  addVerts(y,z,x);
-}
-let img1, img2, img3, img4, img5, img6, slider_x, slider_y, r_check;
-function preload(){
-  img1 = loadImage(static_url+'main_page/photos.jpg');
-  img2 = loadImage(static_url+'main_page/photos1.jpg');
-  img3 = loadImage(static_url+'main_page/photos2.jpg');
-  img4 = loadImage(static_url+'main_page/photos3.jpg');
-  img5 = loadImage(static_url+'main_page/photos4.jpg');
-  img6 = loadImage(static_url+'main_page/photos5.jpg');
-}
-function setup() {
-  clear();
-  angleMode(DEGREES);
-  var canvas = createCanvas(700, 450, WEBGL);
-  resizeCanvas(windowWidth*widthF, windowWidth*widthF);
-  var PHI = (1+sqrt(5))/2;
-  addVerts(1,1,1);
-  // addPermutations(0,1/PHI,PHI);
-  edgeLength = 2/PHI;
-  dispSz = 90;
-  dispSz = ((windowWidth*widthF)*windowHeight*heightF)*dispF
-  slider_x = createSlider(-180, 180, 0);
-  slider_y = createSlider(-180, 180, 0);
-  r_check = createCheckbox('auto rotate', true);
-  r_check.changed(ch);
-  var cv = document.getElementById('main');
-  cv.appendChild(slider_x.elt);
-  cv.appendChild(slider_y.elt);
-  cv.appendChild(r_check.elt);
-}
-class vert{
-  constructor(x,y,z){
-    this.x = x;
-    this.y = y;
-    this.z = z;
-  }
-}
-function addVerts(x,y,z){
-  verts.push(new vert(x,y,z));
-  if(z != 0.0){verts.push(new vert(x,y,z*-1))}
-  if(y != 0.0){
-    verts.push(new vert(x,y*-1,z));
-    if(z != 0.0){verts.push(new vert(x,y*-1,z*-1))}
-  }
-  if(x != 0.0){
-    verts.push(new vert(x*-1,y,z));
-    if(z != 0.0){verts.push(new vert(x*-1,y,z*-1))}
-    if(y != 0.0){
-      verts.push(new vert(x*-1,y*-1,z));
-      if(z != 0.0){verts.push(new vert(x*-1,y*-1,z*-1))}
-    }
-  }
-}
+// var verts = [];
+// var rotation_factor = 0.004;
+// var rotation = 0.001;
+// var widthF = .7;
+// var heightF = .9;
+// var dispF = .00015;
+// function addPermutations(x,y,z){
+//   addVerts(x,y,z);
+//   addVerts(z,x,y);
+//   addVerts(y,z,x);
+// }
+// let img1, img2, img3, img4, img5, img6, slider_x, slider_y, r_check;
+// function preload(){
+//   img1 = loadImage(static_url+'main_page/photos.jpg');
+//   img2 = loadImage(static_url+'main_page/photos1.jpg');
+//   img3 = loadImage(static_url+'main_page/photos2.jpg');
+//   img4 = loadImage(static_url+'main_page/photos3.jpg');
+//   img5 = loadImage(static_url+'main_page/photos4.jpg');
+//   img6 = loadImage(static_url+'main_page/photos5.jpg');
+// }
+// function setup() {
+//   clear();
+//   angleMode(DEGREES);
+//   var canvas = createCanvas(700, 450, WEBGL);
+//   resizeCanvas(windowWidth*widthF, windowWidth*widthF);
+//   var PHI = (1+sqrt(5))/2;
+//   addVerts(1,1,1);
+//   // addPermutations(0,1/PHI,PHI);
+//   edgeLength = 2/PHI;
+//   dispSz = 90;
+//   dispSz = ((windowWidth*widthF)*windowHeight*heightF)*dispF
+//   slider_x = createSlider(-180, 180, 0);
+//   slider_y = createSlider(-180, 180, 0);
+//   r_check = createCheckbox('auto rotate', true);
+//   r_check.changed(ch);
+//   var cv = document.getElementById('main');
+//   cv.appendChild(slider_x.elt);
+//   cv.appendChild(slider_y.elt);
+//   cv.appendChild(r_check.elt);
+// }
+// class vert{
+//   constructor(x,y,z){
+//     this.x = x;
+//     this.y = y;
+//     this.z = z;
+//   }
+// }
+// function addVerts(x,y,z){
+//   verts.push(new vert(x,y,z));
+//   if(z != 0.0){verts.push(new vert(x,y,z*-1))}
+//   if(y != 0.0){
+//     verts.push(new vert(x,y*-1,z));
+//     if(z != 0.0){verts.push(new vert(x,y*-1,z*-1))}
+//   }
+//   if(x != 0.0){
+//     verts.push(new vert(x*-1,y,z));
+//     if(z != 0.0){verts.push(new vert(x*-1,y,z*-1))}
+//     if(y != 0.0){
+//       verts.push(new vert(x*-1,y*-1,z));
+//       if(z != 0.0){verts.push(new vert(x*-1,y*-1,z*-1))}
+//     }
+//   }
+// }
 let flag = true;
 function draw() {
   background(255,255,255,0);
