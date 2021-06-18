@@ -1,0 +1,15 @@
+
+Initial Chunk Files   | Names         |    Size
+main.js               | main          | 0 bytes
+polyfills.js          | polyfills     | 0 bytes
+runtime.js            | runtime       | 0 bytes
+styles.css, styles.js | styles        | 0 bytes
+vendor.js             | vendor        | 0 bytes
+
+| Initial Total | 0 bytes
+
+Build at: 2021-06-18T04:17:40.864Z - Hash: d00db42f6dae2f5bc2d7 - Time: 7588ms
+
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+
+Terminate batch job (Y/N)? 

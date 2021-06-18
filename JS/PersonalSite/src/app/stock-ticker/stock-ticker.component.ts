@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-// var yahooFinance = require('yahoo-finance');
 import * as yahooFinance from 'yahoo-finance';
 @Component({
     selector: 'app-stock-ticker',
@@ -14,6 +13,8 @@ export class StockTickerComponent{
             //     modules: ['price']
             // })
         }
+        let k = yahooFinance.historical({symbol: 'krfg', from:'2021-01-01', to: '2021-02-01'})
+        // let k = yahooFinance.quote({symbol: 'krfg', modules: ['price']});
     }
     
 
